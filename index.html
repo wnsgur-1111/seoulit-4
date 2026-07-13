@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>내면 나침반 — 성격유형 검사</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-noise"></div>
+
+<!-- ===== 인트로 화면 ===== -->
+<section id="screen-intro" class="screen active">
+  <div class="intro-wrap">
+    <span class="eyebrow">내면 나침반</span>
+    <h1 class="hero-title">당신 안에는<br><em>네 개의 바늘</em>이 있습니다.</h1>
+    <p class="hero-desc">에너지의 방향, 정보를 대하는 방식, 결정을 내리는 기준, 삶을 살아가는 태도.<br>
+    20개의 질문으로 네 개의 축이 어디를 가리키는지 확인해보세요.</p>
+
+    <div class="axis-preview">
+      <div class="axis-preview-row"><span class="letter">E</span><div class="track"><div class="fill" style="width:50%"></div></div><span class="letter">I</span></div>
+      <div class="axis-preview-row"><span class="letter">S</span><div class="track"><div class="fill" style="width:50%"></div></div><span class="letter">N</span></div>
+      <div class="axis-preview-row"><span class="letter">T</span><div class="track"><div class="fill" style="width:50%"></div></div><span class="letter">F</span></div>
+      <div class="axis-preview-row"><span class="letter">J</span><div class="track"><div class="fill" style="width:50%"></div></div><span class="letter">P</span></div>
+    </div>
+
+    <button id="btn-start" class="btn-primary">검사 시작하기</button>
+    <span class="meta-note">약 3분 소요 · 20문항 · 결과는 저장되지 않습니다</span>
+  </div>
+</section>
+
+<!-- ===== 질문 화면 ===== -->
+<section id="screen-quiz" class="screen">
+  <div class="quiz-gauges">
+    <div class="gauge" data-axis="EI"><span class="g-label left">E</span><div class="g-track"><div class="g-fill" id="fill-EI"></div></div><span class="g-label right">I</span></div>
+    <div class="gauge" data-axis="SN"><span class="g-label left">S</span><div class="g-track"><div class="g-fill" id="fill-SN"></div></div><span class="g-label right">N</span></div>
+    <div class="gauge" data-axis="TF"><span class="g-label left">T</span><div class="g-track"><div class="g-fill" id="fill-TF"></div></div><span class="g-label right">F</span></div>
+    <div class="gauge" data-axis="JP"><span class="g-label left">J</span><div class="g-track"><div class="g-fill" id="fill-JP"></div></div><span class="g-label right">P</span></div>
+  </div>
+
+  <div class="quiz-wrap">
+    <span class="q-count"><span id="q-current">1</span> / <span id="q-total">20</span></span>
+    <h2 id="q-text" class="q-text">질문이 여기에 표시됩니다</h2>
+    <div class="options">
+      <button class="option" id="opt-a" data-choice="a">
+        <span class="opt-mark">A</span>
+        <span class="opt-text" id="opt-a-text"></span>
+      </button>
+      <button class="option" id="opt-b" data-choice="b">
+        <span class="opt-mark">B</span>
+        <span class="opt-text" id="opt-b-text"></span>
+      </button>
+    </div>
+    <button id="btn-back" class="btn-ghost">← 이전 질문</button>
+  </div>
+</section>
+
+<!-- ===== 결과 화면 ===== -->
+<section id="screen-result" class="screen">
+  <div class="result-wrap">
+    <span class="eyebrow">당신의 나침반이 가리키는 곳</span>
+    <div class="result-type-row">
+      <span class="result-type" id="result-type">INFP</span>
+    </div>
+    <h2 class="result-name" id="result-name">유형 이름</h2>
+
+    <div class="result-axes" id="result-axes"></div>
+
+    <p class="result-desc" id="result-desc"></p>
+
+    <div class="result-traits">
+      <div class="trait-block">
+        <h3>강점</h3>
+        <ul id="result-strengths"></ul>
+      </div>
+      <div class="trait-block">
+        <h3>주의할 점</h3>
+        <ul id="result-watch"></ul>
+      </div>
+    </div>
+
+    <button id="btn-restart" class="btn-primary">다시 검사하기</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
